@@ -12,8 +12,19 @@ function handleClick(event) {
 
     let square = event.target
     let position = square.id;
+    let jogadorVencedor
 
-    handleMove(position)
+    if (handleMove(position)) {
+        setTimeout(() => {
+            if (playerTime == 0) {
+                jogadorVencedor = 'primeiro jogador'
+            } else {
+                jogadorVencedor = 'segundo jogador'
+            }
+            alert(`Vencedor foi o ${jogadorVencedor}`)
+        }, 15)
+
+    }
 
     updateSquares()
 }
